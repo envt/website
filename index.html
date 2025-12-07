@@ -1,302 +1,463 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>envt</title>
+    <meta content="" name="description" />
+    <meta content="" name="keywords" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Fira+Sans&family=Poppins:wght@600;700&family=Raleway:wght@600;700&family=Roboto+Mono&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <script type="text/javascript">
+      function initPage() {
+        var year = new Date().getFullYear();
+        document.getElementById("xp").innerHTML = year - 2009;
+        document.getElementById("year").innerHTML = year;
+      }
+    </script>
+  </head>
 
-<head>
-	<meta charset="utf-8">
-	<meta content="width=device-width, initial-scale=1.0" name="viewport">
-	<title>envt</title>
-	<meta content="" name="description">
-	<meta content="" name="keywords">
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fira+Sans&family=Poppins:wght@600;700&family=Raleway:wght@600;700&family=Roboto+Mono&display=swap">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
-	<link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
-	<link rel="stylesheet" href="assets/css/style.css">
-	<script type="text/javascript">
-		function translate() {
-			var href = window.location.href;
-			var lang = href.includes('?lang=fr') ? 'fr' : 'en';
-
-			fetch('https://envt.github.io/website/lang.' + lang + '.json')
-				.then((response) => response.json())
-				.then((json) => {
-					document.querySelectorAll('[data-i18n]').forEach(element => {
-						const key = element.getAttribute('data-i18n');
-						element.textContent = json[key];
-					});
-				});
-
-			var year = new Date().getFullYear();
-			document.getElementById('xp').innerHTML = year - 2009;
-			document.getElementById('flag-icon').setAttribute('class', 'flag-icon flag-icon-' + lang);
-			document.getElementById('year').innerHTML = year;
-		}
-	</script>
-</head>
-
-<body onload="translate();">
-	<header>
-		<nav id="navbar" class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-			<div class="container-fluid">
-				<a class="navbar-brand" href="#">envt.github.io/website</a>
-				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
-				</button>
-				<div class="collapse navbar-collapse" id="navbarSupportedContent">
-					<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-						<li class="nav-item"><a href="#about" class="nav-link" data-i18n="about"></a></li>
-						<li class="nav-item"><a href="#career" class="nav-link" data-i18n="career"></a></li>
-						<li class="nav-item"><a href="#resume" class="nav-link" data-i18n="resume"></a></li>
-						<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-								<span id="flag-icon"></span>
-							</a>
-							<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-								<li>
-									<a class="dropdown-item" href="?lang=en">
-										<span class="flag-icon flag-icon-en"></span>
-									</a>
-								</li>
-								<li>
-									<a class="dropdown-item" href="?lang=fr">
-										<span class="flag-icon flag-icon-fr"></span>
-									</a>
-								</li>
-							</ul>
-						</li>
-					</ul>
-				</div>
-			</div>
-		</nav>
-		<section id="hero" class="d-flex flex-column justify-content-end">
-			<div class="container" data-aos="fade-in">
-				<h1 data-i18n="greeting"></h1>
-				<p class="my-3">
-					<span data-i18n="greeting-subtitle-1"></span>
-					<span id="xp"></span>
-					<span data-i18n="greeting-subtitle-2"></span>
-				</p>
-				<div class="social-links">
-					<a href="https://github.com/envt" title="GitHub" target="_blank"><i class="fa fa-github"></i></a>
-					<a href="https://www.linkedin.com/in/emilien-vallot" title="LinkedIn" target="_blank"><i class="fa fa-linkedin"></i>
-					</a>
-				</div>
-			</div>
-		</section>
-	</header>
-	<main id="main">
-		<section id="about" class="about">
-			<div class="container" data-aos="fade-up" data-aos-offset="100">
-				<div class="section-title">
-					<h2 data-i18n="about"></h2>
-				</div>
-				<div class="row">
-					<div class="col"></div>
-					<div class="col-sm-6 text-center">
-						<p data-i18n="about-1"></p>
-						<p data-i18n="about-2"></p>
-						<p class="m-4 text-muted">- spoiler alert -</p>
-						<p>
-							<span data-i18n="about-3"></span>
-							<span class="text-light" data-i18n="about-4"></span>
-						</p>
-						<p data-i18n="about-5"></p>
-						<p data-i18n="about-6"></p>
-						<p data-i18n="about-7"></p>
-						<p class="mt-5" data-i18n="about-8"></p>
-					</div>
-					<div class="col"></div>
-				</div>
-			</div>
-		</section>
-		<section id="career" class="career">
-			<div class="container" data-aos="fade-up">
-				<div class="section-title">
-					<h2 data-i18n="career"></h2>
-				</div>
-				<div class="row">
-					<div class="col-lg-6">
-						<p data-i18n="career-1"></p>
-						<p data-i18n="career-2"></p>
-						<p data-i18n="career-3"></p>
-					</div>
-					<div class="col-lg-6">
-						<p data-i18n="career-4"></p>
-						<p data-i18n="career-5"></p>
-						<p data-i18n="career-6"></p>
-					</div>
-				</div>
-			</div>
-		</section>
-		<section id="resume" class="resume">
-			<div class="container" data-aos="fade-up" data-aos-offset="100">
-				<div class="section-title">
-					<h2 data-i18n="resume"></h2>
-				</div>
-				<div class="row">
-					<div class="col-lg-6">
-						<h3 class="resume-title" data-i18n="resume-education-title"></h3>
-						<div class="resume-item">
-							<h4 data-i18n="resume-education-item-1-diploma"></h4>
-							<h5>2009</h5>
-							<p><em><span data-i18n="resume-education-item-1-institute"></span> - Belfort, FR</em></p>
-							<p data-i18n="resume-education-item-1-studies"></p>
-						</div>
-						<div class="resume-item">
-							<h4 data-i18n="resume-education-item-2-diploma"></h4>
-							<h5>2006</h5>
-							<p><em><span data-i18n="resume-education-item-2-institute"></span> - Reims, FR</em></p>
-							<p data-i18n="resume-education-item-2-studies"></p>
-						</div>
-						<div class="resume-item">
-							<h4 data-i18n="resume-education-item-3-diploma"></h4>
-							<h5>2003</h5>
-							<p><em><span data-i18n="resume-education-item-3-institute"></span> - Reims, FR</em></p>
-							<p data-i18n="resume-education-item-3-studies"></p>
-						</div>
-					</div>
-					<div class="col-lg-6">
-						<h3 class="resume-title" data-i18n="resume-experience-title"></h3>
-						<div class="resume-item">
-							<h4 data-i18n="resume-experience-item-1-title"></h4>
-							<h5>
-								<span data-i18n="january"></span> 2022 - <span data-i18n="present"></span>
-							</h5>
-							<p><em>Fuzzy Logic Robotics - Paris, FR</em></p>
-							<p data-i18n="resume-experience-item-1-desc"></p>
-							<ul>
-								<li data-i18n="resume-experience-item-1-li-1"></li>
-								<li data-i18n="resume-experience-item-1-li-2"></li>
-								<li data-i18n="resume-experience-item-1-li-3"></li>
-								<li data-i18n="resume-experience-item-1-li-4"></li>
-							</ul>
-							<p>
-								<i class="fa fa-wrench" title="Tools">
-									<span>CMake, OpenGL, Vulkan, Qt6, C++23, Python, Vue.js</span>
-								</i>
-							</p>
-							<p>
-								<i class="fa fa-windows" title="Windows"></i>
-								<i class="fa fa-linux" title="Linux"></i>
-							</p>
-						</div>
-						<div class="resume-item">
-							<h4 data-i18n="resume-experience-item-2-title"></h4>
-							<h5>
-								<span data-i18n="july"></span> 2022 - <span data-i18n="july"></span> 2021
-							</h5>
-							<p><em>Abvent R&amp;D - Paris, FR</em></p>
-							<p data-i18n="resume-experience-item-2-desc"></p>
-							<ul>
-								<li data-i18n="resume-experience-item-2-li-1"></li>
-								<li data-i18n="resume-experience-item-2-li-2"></li>
-								<li data-i18n="resume-experience-item-2-li-3"></li>
-								<li data-i18n="resume-experience-item-2-li-4"></li>
-								<li data-i18n="resume-experience-item-2-li-5"></li>
-							</ul>
-							<p>
-								<i class="fa fa-wrench" title="Tools">
-									<span>Python, CMake, C++17, Lua, Qt6, OpenGL,Metal</span>
-								</i>
-							</p>
-							<p>
-								<i class="fa fa-windows" title="Windows"></i>
-								<i class="fa fa-apple" title="macOS"></i>
-							</p>
-						</div>
-						<div class="resume-item">
-							<h4 data-i18n="resume-experience-item-3-title"></h4>
-							<h5>
-								<span data-i18n="june"></span> 2017 - <span data-i18n="july"></span> 2020
-							</h5>
-							<p><em>L-Acoustics - Marcoussis, FR</em></p>
-							<p data-i18n="resume-experience-item-3-desc"></p>
-							<ul>
-								<li data-i18n="resume-experience-item-3-li-1"></li>
-								<li data-i18n="resume-experience-item-3-li-2"></li>
-								<li data-i18n="resume-experience-item-3-li-3"></li>
-								<li data-i18n="resume-experience-item-3-li-4"></li>
-								<li data-i18n="resume-experience-item-3-li-5"></li>
-							</ul>
-							<p>
-								<i class="fa fa-wrench" title="Tools">
-									<span>CMake, C++17, Juce, Qt5, OpenGL</span>
-								</i>
-							</p>
-							<p>
-								<i class="fa fa-windows" title="Windows"></i>
-								<i class="fa fa-apple" title="macOS"></i>
-							</p>
-						</div>
-						<div class="resume-item">
-							<h4 data-i18n="resume-experience-item-4-title"></h4>
-							<h5>
-								<span data-i18n="september"></span> 2014 - <span data-i18n="may"></span> 2017
-							</h5>
-							<p><em>SolidAnim - Ivry-Sur-Seine, FR</em></p>
-							<p data-i18n="resume-experience-item-4-desc"></p>
-							<ul>
-								<li data-i18n="resume-experience-item-4-li-1"></li>
-								<li data-i18n="resume-experience-item-4-li-2"></li>
-								<li data-i18n="resume-experience-item-4-li-3"></li>
-								<li data-i18n="resume-experience-item-4-li-4"></li>
-								<li data-i18n="resume-experience-item-4-li-5"></li>
-								<li data-i18n="resume-experience-item-4-li-6"></li>
-							</ul>
-							<p>
-								<i class="fa fa-wrench" title="Tools">
-									<span>CMake, C++11, Qt5, OpenGL, Arduino, OpenCV, Python</span>
-								</i>
-							</p>
-							<p>
-								<i class="fa fa-windows" title="Windows"></i>
-								<i class="fa fa-linux" title="Linux"></i>
-							</p>
-						</div>
-						<div class="resume-item">
-							<h4 data-i18n="resume-experience-item-5-title"></h4>
-							<h5>
-								<span data-i18n="september"></span> 2009 - <span data-i18n="september"></span> 2014
-							</h5>
-							<p><em>TechViz - Paris, FR</em></p>
-							<p data-i18n="resume-experience-item-5-desc"></p>
-							<ul>
-								<li data-i18n="resume-experience-item-5-li-1"></li>
-								<li data-i18n="resume-experience-item-5-li-2"></li>
-								<li data-i18n="resume-experience-item-5-li-3"></li>
-								<li data-i18n="resume-experience-item-5-li-4"></li>
-								<li data-i18n="resume-experience-item-5-li-5"></li>
-								<li data-i18n="resume-experience-item-5-li-6"></li>
-							</ul>
-							<p>
-								<i class="fa fa-wrench" title="Tools">
-									<span>CMake, C, IDA, Qt5, OpenGL, DirectX</span>
-								</i>
-							</p>
-							<p>
-								<i class="fa fa-windows" title="Windows"></i>
-								<i class="fa fa-linux" title="Linux"></i>
-							</p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-	</main>
-	<footer id="footer">
-		<div class="container">
-			<p>&copy; Copyright <strong>Emilien Vallot</strong>,
-				<span id="year"></span>. All rights reserved.
-			</p>
-		</div>
-	</footer>
-	<a href="#" id="back-to-top" class="d-flex align-items-center justify-content-center"><i class="fa fa-arrow-up"></i></a>
-	<div id="preloader"></div>
-	<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-	<script src="assets/js/main.js"></script>
-</body>
-
+  <body onload="initPage();">
+    <header>
+      <nav
+        id="navbar"
+        class="navbar navbar-expand-lg navbar-light bg-light fixed-top"
+      >
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">envt.github.io/website</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a href="#about" class="nav-link">about</a>
+              </li>
+              <li class="nav-item">
+                <a href="#career" class="nav-link">career</a>
+              </li>
+              <li class="nav-item">
+                <a href="#resume" class="nav-link">resume</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <section id="hero" class="d-flex flex-column justify-content-end">
+        <div class="container" data-aos="fade-in">
+          <h1>Emilien Vallot</h1>
+          <p class="my-3">
+            Software Engineer with
+            <span id="xp"></span>
+            years of professional experience building C++ software and tools on
+            Windows, Linux and macOS.
+          </p>
+          <div class="social-links">
+            <a href="https://github.com/envt" title="GitHub" target="_blank"
+              ><i class="fa fa-github"></i
+            ></a>
+            <a
+              href="https://www.linkedin.com/in/emilien-vallot"
+              title="LinkedIn"
+              target="_blank"
+              ><i class="fa fa-linkedin"></i>
+            </a>
+          </div>
+        </div>
+      </section>
+    </header>
+    <main id="main">
+      <section id="about" class="about">
+        <div class="container" data-aos="fade-up" data-aos-offset="100">
+          <div class="section-title">
+            <h2>about</h2>
+          </div>
+          <div class="row">
+            <div class="col"></div>
+            <div class="col-sm-6 text-center">
+              <p>
+                Passionate about developing and automating things. It all
+                started back in 2003.
+              </p>
+              <p>
+                At that time, I was already programming in assembly to make 4
+                levels of gray drawings on my HP40g calculator, but I wanted to
+                become 3D graphic designer.
+              </p>
+              <p class="m-4 text-muted">- spoiler alert -</p>
+              <p>
+                Unfortunately, it didn't work out and I thought to myself:
+                <span class="text-light"
+                  >Maybe I can develop tools for graphic designers?!</span
+                >
+              </p>
+              <p>
+                This explains my background, focused on digital imaging,
+                computer vision and later virtual reality.
+              </p>
+              <p>
+                Since then, I've been developing software and tools in several
+                industries such as film, architecture, videography, robotics or
+                even professional audio.
+              </p>
+              <p>I'm always looking for new challenges and things to learn.</p>
+              <p class="mt-5">
+                When I'm not coding, I also enjoy reading, going to the movies,
+                drawing, juggling and photography!
+              </p>
+            </div>
+            <div class="col"></div>
+          </div>
+        </div>
+      </section>
+      <section id="career" class="career">
+        <div class="container" data-aos="fade-up">
+          <div class="section-title">
+            <h2>career</h2>
+          </div>
+          <div class="row">
+            <div class="col-lg-6">
+              <p>
+                All these years allowed me to gather a wide range of skills.
+              </p>
+              <p>
+                My first experience at TechViz during which my knowledge in C, C
+                ++, CPU, GPU and 3D optimization in general (OpenGL, GLSH,
+                DirectX, HLSL, linear algebra, ..) greatly improved. Likewise in
+                other areas such as TCP / UDP networking, hardware device
+                integration, third party assembly code analysis (oops!), CPU /
+                GPU bottleneck detection + optimization, very instructive! In a
+                team of about ten people, excellent first experience.
+              </p>
+              <p>
+                I left for a dream job at SolidAnim. Working closely with
+                graphics designers, helping them getting their job done! I
+                strengthened my C++, Qt5, linear algebra, networking and
+                multi-threading skills. An extraordinary experience that allowed
+                me to discover film sets, and also because the R&D team was free
+                to make technical choices as long as the results were there, I
+                really enjoyed working here.
+              </p>
+            </div>
+            <div class="col-lg-6">
+              <p>
+                Their move to Bordeaux brought me to L-Acoustics. With
+                passionate people, always up to date on a technical level. Here
+                I was able to update my C++17, CMake, Qt, networking, Jenkins
+                and build systems knowledge, I was also able to bring my 3D
+                expertise for the visualization of acoustic simulations. Great
+                opportunity to work in this area.
+              </p>
+              <p>
+                After a few years, a stint at Abvent and the opportunity to
+                return to the world of 3D. Again, the R&D team was free to make
+                technical choices so we had full controll of the development
+                process (C++17, CMake, Metal, OpenGL, CI, ...). Working with
+                state of the art real-time GPU rendering pipelines was something
+                I really appreciated.
+              </p>
+              <p>
+                And here we are, currently at Fuzzy Logic Robotics a dynamic
+                startup, working on Fuzzy Studio, looking forward to my next
+                challenges!
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="resume" class="resume">
+        <div class="container" data-aos="fade-up" data-aos-offset="100">
+          <div class="section-title">
+            <h2>resume</h2>
+          </div>
+          <div class="row">
+            <div class="col-lg-6">
+              <h3 class="resume-title">Education</h3>
+              <div class="resume-item">
+                <h4>Master's Degree in Computer Science Engineering</h4>
+                <h5>2009</h5>
+                <p>
+                  <em
+                    >University of Technology of Belfort-Montbéliard - Belfort,
+                    FR</em
+                  >
+                </p>
+                <p>Image, Interaction and Virtual Reality</p>
+              </div>
+              <div class="resume-item">
+                <h4>Associate's Degree in Computer Science</h4>
+                <h5>2006</h5>
+                <p>
+                  <em
+                    >University Institute of Technology of
+                    Reims-Châlons-Charleville - Reims, FR</em
+                  >
+                </p>
+                <p>Digital Imaging and Computer Vision</p>
+              </div>
+              <div class="resume-item">
+                <h4>High-School Diploma</h4>
+                <h5>2003</h5>
+                <p><em>Roosevelt High-School - Reims, FR</em></p>
+                <p>Engineering Sciences</p>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <h3 class="resume-title">Professional Experience</h3>
+              <div class="resume-item">
+                <h4>Software Engineer</h4>
+                <h5>January 2022 - Present</h5>
+                <p><em>Fuzzy Logic Robotics - Paris, FR</em></p>
+                <ul>
+                  <li>
+                    Owned a complex legacy 3D engine codebase and led deep
+                    refactoring, code-quality improvements, and tooling
+                    enhancements.
+                  </li>
+                  <li>
+                    Driving the development of a full automated welding system:
+                  </li>
+                  <ul>
+                    <li>3D camera acquisition & calibration</li>
+                    <li>Seam detection & trajectory computation</li>
+                    <li>Robot control & automation</li>
+                  </ul>
+                  <li>
+                    Lead developer of the UI in Vue + Three.js for industrial 3D
+                    visualization.
+                  </li>
+                  <li>
+                    Acting as technical lead in a manager‐less team:
+                    coordination, roadmap, prototyping, delivery of demos
+                    enabling fundraising.
+                  </li>
+                  <li>
+                    Introducing long‐term modular architecture and an
+                    AI‐enhanced development workflow.
+                  </li>
+                </ul>
+                <p>
+                  <i class="fa fa-wrench" title="Tools">
+                    <span
+                      >C++, Python, robotics, 3D vision, calibration, Vue,
+                      Three.js, AI Tooling</span
+                    >
+                  </i>
+                </p>
+                <p>
+                  <i class="fa fa-windows" title="Windows"></i>
+                  <i class="fa fa-linux" title="Linux"></i>
+                </p>
+              </div>
+              <div class="resume-item">
+                <h4>Software Engineer</h4>
+                <h5>July 2022 - July 2021</h5>
+                <p><em>GoPro - Paris, FR</em></p>
+                <ul>
+                  <li>
+                    Contributed to stabilization algorithms for the GoPro mobile
+                    app (C/C++/Python).
+                  </li>
+                  <li>
+                    Worked on a Python‐based image‐processing engine compiled
+                    for iOS/Android.
+                  </li>
+                  <li>
+                    Maintained and improved the CMake‐based cross‐platform build
+                    system.
+                  </li>
+                </ul>
+                <p>
+                  <i class="fa fa-wrench" title="Tools">
+                    <span>C, C++, Python, CMake, mobile, image processing</span>
+                  </i>
+                </p>
+                <p>
+                  <i class="fa fa-windows" title="Windows"></i>
+                  <i class="fa fa-apple" title="macOS"></i>
+                </p>
+              </div>
+              <div class="resume-item">
+                <h4>R&D Engineer</h4>
+                <h5>July 2022 - July 2021</h5>
+                <p><em>Abvent R&amp;D - Paris, FR</em></p>
+                <ul>
+                  <li>
+                    Led the creation of a new unified C++/Qt codebase for
+                    Artlantis (Windows + macOS).
+                  </li>
+                  <li>
+                    Designed architecture, CI/CD, tests, build tooling, and
+                    repository structure.
+                  </li>
+                  <li>
+                    Provided technical leadership and guidance to the
+                    development team.
+                  </li>
+                </ul>
+                <p>
+                  <i class="fa fa-wrench" title="Tools">
+                    <span>C++, Qt, CI/CD, architecture</span>
+                  </i>
+                </p>
+                <p>
+                  <i class="fa fa-windows" title="Windows"></i>
+                  <i class="fa fa-apple" title="macOS"></i>
+                </p>
+              </div>
+              <div class="resume-item">
+                <h4>Software Engineer</h4>
+                <h5>June 2017 - July 2020</h5>
+                <p><em>L-Acoustics - Marcoussis, FR</em></p>
+                <ul>
+                  <li>
+                    Built architecture enabling JUCE + Qt coexistence within
+                    Network Manager.
+                  </li>
+                  <li>
+                    Delivered Qt plugin modules, notably the UI for the P1
+                    Processor and integration of the M1 calibration system.
+                  </li>
+                  <li>
+                    Supported QA by generating full UI description dumps (XML)
+                    for automated validation.
+                  </li>
+                  <li>
+                    Contributed to SoundVision: OpenGL fixes, UI improvements,
+                    performance enhancements.
+                  </li>
+                </ul>
+                <p>
+                  <i class="fa fa-wrench" title="Tools">
+                    <span>C++, Qt, JUCE, OpenGL, XML, real-time, network</span>
+                  </i>
+                </p>
+                <p>
+                  <i class="fa fa-windows" title="Windows"></i>
+                  <i class="fa fa-apple" title="macOS"></i>
+                </p>
+              </div>
+              <div class="resume-item">
+                <h4>R&D Engineer</h4>
+                <h5>September 2014 - May 2017</h5>
+                <p><em>SolidAnim - Ivry-Sur-Seine, FR</em></p>
+                <ul>
+                  <li>
+                    Engineered C++/Qt tools for a real‐time camera‐tracking
+                    solution (SLAM / PTAM) used in virtual production.
+                  </li>
+                  <li>
+                    Developed plugins for Unity, Unreal Engine, and
+                    MotionBuilder to retrieve live camera pose via OSC.
+                  </li>
+                  <li>
+                    Key contributor to a portable virtual‐camera system:
+                    embedded tracking, joystick controls, MotionBuilder
+                    integration.
+                  </li>
+                  <li>
+                    Built calibration tools (optical center, zoom models) and
+                    broadcast synchronization hardware (Arduino timecode box).
+                  </li>
+                  <li>
+                    Created production tools for artists: mocap scene cleaning
+                    and pipeline automation.
+                  </li>
+                </ul>
+                <p>
+                  <i class="fa fa-wrench" title="Tools">
+                    <span
+                      >C++, Qt, SLAM, network, Unity, UE, MotionBuilder,
+                      embedded systems</span
+                    >
+                  </i>
+                </p>
+                <p>
+                  <i class="fa fa-windows" title="Windows"></i>
+                  <i class="fa fa-linux" title="Linux"></i>
+                </p>
+              </div>
+              <div class="resume-item">
+                <h4>R&D Engineer</h4>
+                <h5>September 2009 - September 2014</h5>
+                <p><em>TechViz - Paris, FR</em></p>
+                <ul>
+                  <li>
+                    Developed C++/Qt tools for deploying and managing the
+                    TechViz OpenGL interception driver.
+                  </li>
+                  <li>
+                    Contributed to the real‐time engine: performance
+                    optimization, device integration (VR headsets, tracking,
+                    multi‐display).
+                  </li>
+                  <li>
+                    Implemented math routines to extract camera/pose data from
+                    raw transformation matrices.
+                  </li>
+                  <li>
+                    Built a non‐planar projection system (video‐mapping style)
+                    and a virtual avatar system for immersive setups.
+                  </li>
+                  <li>
+                    Participated in early prototypes for collaborative
+                    multi‐user VR.
+                  </li>
+                </ul>
+                <p>
+                  <i class="fa fa-wrench" title="Tools">
+                    <span>C, C++, Qt, OpenGL, tracking, VR, 3D math</span>
+                  </i>
+                </p>
+                <p>
+                  <i class="fa fa-windows" title="Windows"></i>
+                  <i class="fa fa-linux" title="Linux"></i>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer id="footer">
+      <div class="container">
+        <p>
+          &copy; Copyright <strong>Emilien Vallot</strong>,
+          <span id="year"></span>. All rights reserved.
+        </p>
+      </div>
+    </footer>
+    <a
+      href="#"
+      id="back-to-top"
+      class="d-flex align-items-center justify-content-center"
+      ><i class="fa fa-arrow-up"></i
+    ></a>
+    <div id="preloader"></div>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/main.js"></script>
+  </body>
 </html>
